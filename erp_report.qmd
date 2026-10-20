@@ -93,13 +93,15 @@ BASELINE = (-0.2,0) # baseline interval
 CONDITIONS = ["stimulus/target_word/related", "stimulus/target_word/unrelated"]
 
 # participants exclided for the N400 (see methods)
-EXCLUDE = ["040_raw.fif.gz"]
+EXCLUDE = ["040"]
+
 REJECT = {
     "eeg": 150e-6,
     "eog": 250e-6
 }
 
 ```
+
 
 ## Data analysis
 
@@ -164,13 +166,24 @@ for processed_file in PROCESSED_PATH.glob("*_raw.fif.gz"):
 ```
 
 ```{python}
+processed = SimpleRaw(PROCESSED_PATH / "030_raw.fif.gz")
+events, event_id = processed.get_events()
+print(event_id)
+print(len(events))
+
+# with the rejection thresholds (as in your analysis)
+epochs = SimpleEpoch(processed, events, event_id, tmin = TMIN, tmax = TMAX, baseline = BASELINE, reject = REJECT)
+print(epochs)
+
+# without rejection, to see if rejection is the cause
+epochs_all = SimpleEpoch(processed, events, event_id, tmin = TMIN, tmax = TMAX, baseline = BASELINE, reject = None)
+print(epochs_all)
+```
+```{python}
 for cond in CONDITIONS:
     print(cond, len(ss_avs[cond]))
 ```
-```{python}
-print("raw:", len(list(RAW_PATH.glob("*_raw.fif.gz"))))
-print("processed:", len(list(PROCESSED_PATH.glob("*_raw.fif.gz"))))
-```
+
 ### Grand average
 
 ```{python}
