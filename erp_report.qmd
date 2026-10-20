@@ -90,7 +90,7 @@ TMAX = 0.8  # epoch end relative to critical event
 BASELINE = (-0.2,0) # baseline interval
 
 # critical conditions for averaging and epoching
-CONDITIONS = ["stimulus/target_word/related", "stimulus/target_word/unrelated"]
+CONDITIONS = ["stimulus/prime_word/related", "stimulus/prime_word/unrelated"]
 
 # participants exclided for the N400 (see methods)
 EXCLUDE = ["040"]
@@ -106,7 +106,6 @@ REJECT = {
 ## Data analysis
 
 ### Preprocessing
-
 
 ```{python}
 #| eval: true # set this to false if you don't want preprocessing to recompute
@@ -165,24 +164,6 @@ for processed_file in PROCESSED_PATH.glob("*_raw.fif.gz"):
 
 ```
 
-```{python}
-processed = SimpleRaw(PROCESSED_PATH / "030_raw.fif.gz")
-events, event_id = processed.get_events()
-print(event_id)
-print(len(events))
-
-# with the rejection thresholds (as in your analysis)
-epochs = SimpleEpoch(processed, events, event_id, tmin = TMIN, tmax = TMAX, baseline = BASELINE, reject = REJECT)
-print(epochs)
-
-# without rejection, to see if rejection is the cause
-epochs_all = SimpleEpoch(processed, events, event_id, tmin = TMIN, tmax = TMAX, baseline = BASELINE, reject = None)
-print(epochs_all)
-```
-```{python}
-for cond in CONDITIONS:
-    print(cond, len(ss_avs[cond]))
-```
 
 ### Grand average
 
@@ -206,8 +187,8 @@ Set the parameters for the specified analysis window, which will include dotted 
 Note: for some components, @kappenman2021 refer to two electrode sites. If this is the case for your chosen component, the analysis requires a consideration of lateralisation; please make an appointment to discuss the required analysis tweaks with Ina.
 
 ```{python}
-selected_electrode = "FCz"
-plot_title = "Grand average for N2: Incompatible versus compatible Flanker stimuli"
+selected_electrode = "CPz"
+plot_title = "Grand average for N400: Incompatible versus compatible Flanker stimuli"
 analysis_window_start = 0.2
 analysis_window_end = 0.4
 
