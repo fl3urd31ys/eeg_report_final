@@ -18,19 +18,15 @@ bibliography: "erp_report.bib"
 ## Setup
 
 ```{python}
-# Specify the required imports for your analysis
 from pathlib import Path
 
 from mini_mne import SimpleRaw, SimpleEpoch, grand_average, plot_evokeds
 
-# Note how we can import a custom preprocessing function from a local script
 from scripts.preproc import preprocess
 
 ```
 
 ```{python}
-# Specify the required paths for your analysis
-# Note that we now include a folder for saving preprocessed data
 RAW_PATH = Path("data/raw")
 PROCESSED_PATH = Path("data/processed")
 PROCESSED_PATH.mkdir(parents=True, exist_ok=True)
@@ -76,8 +72,6 @@ FILTER_SETTINGS = {
     "high_cutoff": 30.0
 }
 
-# This setting re-references to averaged mastoids (P9/P10 as proxy) 
-# To use an average reference, replace ["P9", "P10"] with None 
 REFERENCE = ["P9","P10"]
 
 ```
@@ -123,7 +117,6 @@ for raw_file in RAW_PATH.glob("*_raw.fif.gz"):
     raw = SimpleRaw(raw_file)
 
     # preprocess raw file
-    # note how we draw on a custom preprocessing function here
     processed = preprocess(raw, 
                             reref_params = REFERENCE, 
                             filter_low_cutoff = FILTER_SETTINGS["low_cutoff"], 
@@ -197,7 +190,7 @@ plot_evokeds(grand_avs, picks = selected_electrode, invert_y = True, title = plo
 ```
 
 ## Discussion and reflection
-At CPz, unrelated target words elicited a more negative deflection than related targets, emerging at approximately 280 ms after target onset, and largest around 350 ms. The mean difference between conditions in the 300-500 ms window was approximately -7 μV (visually estimated from the graph), compared with -7.61 μV reported by @kappenman2021. This closely resembled the N400 effect reported by @kappenman2021, who found an onset of ~285 ms, a peak latency of ~370 ms, and mean amplitude of -7.61 μV. The N400 was therefore successfully replicated. 
+At CPz, unrelated target words elicited a more negative deflection than related targets, emerging at approximately 280 ms after target onset, and largest around 350 ms. This closely resembled the N400 effect reported by @kappenman2021, who found an onset of ~285 ms, a peak latency of ~370 ms. The mean difference between conditions in the 300-500 ms window was approximately -7 μV (visually estimated from the graph), compared with -7.61 μV reported by @kappenman2021. The N400 was therefore successfully replicated. 
 
 The grand average waveforms appeared slightly noisier than those in @kappenman2021, who applied a 20 Hz low-pass filter before plotting, whereas this investigation utilised a 30 Hz low-pass filter. Furthermore, participant 030 was excluded because no unrelated-word trials remained after artifact rejection, leaving N = 38 compared with N = 39 originally. This also suggests that the fixed thresholds were perhaps more conservative than the original pipeline. 
 

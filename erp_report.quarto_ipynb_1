@@ -2,7 +2,7 @@
  "cells": [
   {
    "cell_type": "markdown",
-   "id": "d32fff6c",
+   "id": "eaeed3b8",
    "metadata": {},
    "source": [
     "---\n",
@@ -28,28 +28,24 @@
   {
    "cell_type": "code",
    "execution_count": 1,
-   "id": "dd1c9cd9",
+   "id": "d2525bff",
    "metadata": {},
    "outputs": [],
    "source": [
-    "# Specify the required imports for your analysis\n",
     "from pathlib import Path\n",
     "\n",
     "from mini_mne import SimpleRaw, SimpleEpoch, grand_average, plot_evokeds\n",
     "\n",
-    "# Note how we can import a custom preprocessing function from a local script\n",
     "from scripts.preproc import preprocess"
    ]
   },
   {
    "cell_type": "code",
    "execution_count": 2,
-   "id": "81f1a7e4",
+   "id": "c6a0f57c",
    "metadata": {},
    "outputs": [],
    "source": [
-    "# Specify the required paths for your analysis\n",
-    "# Note that we now include a folder for saving preprocessed data\n",
     "RAW_PATH = Path(\"data/raw\")\n",
     "PROCESSED_PATH = Path(\"data/processed\")\n",
     "PROCESSED_PATH.mkdir(parents=True, exist_ok=True)"
@@ -57,7 +53,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "9f6cec0e",
+   "id": "c32e7998",
    "metadata": {},
    "source": [
     "## Introduction\n",
@@ -97,7 +93,7 @@
   {
    "cell_type": "code",
    "execution_count": 3,
-   "id": "4e22bf2c",
+   "id": "0e812972",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -106,14 +102,12 @@
     "    \"high_cutoff\": 30.0\n",
     "}\n",
     "\n",
-    "# This setting re-references to averaged mastoids (P9/P10 as proxy) \n",
-    "# To use an average reference, replace [\"P9\", \"P10\"] with None \n",
     "REFERENCE = [\"P9\",\"P10\"]"
    ]
   },
   {
    "cell_type": "markdown",
-   "id": "412eb49a",
+   "id": "345918d4",
    "metadata": {},
    "source": [
     "#### Epoching parameters\n",
@@ -123,7 +117,7 @@
   {
    "cell_type": "code",
    "execution_count": 4,
-   "id": "1e5d2c45",
+   "id": "88e2c22b",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -146,7 +140,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "3d8f75e4",
+   "id": "2511e1ff",
    "metadata": {},
    "source": [
     "## Data analysis\n",
@@ -157,7 +151,7 @@
   {
    "cell_type": "code",
    "execution_count": 5,
-   "id": "4c8a62f0",
+   "id": "5226ff4c",
    "metadata": {},
    "outputs": [
     {
@@ -7174,7 +7168,6 @@
     "    raw = SimpleRaw(raw_file)\n",
     "\n",
     "    # preprocess raw file\n",
-    "    # note how we draw on a custom preprocessing function here\n",
     "    processed = preprocess(raw, \n",
     "                            reref_params = REFERENCE, \n",
     "                            filter_low_cutoff = FILTER_SETTINGS[\"low_cutoff\"], \n",
@@ -7185,7 +7178,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "3128e65e",
+   "id": "0b8f1d02",
    "metadata": {},
    "source": [
     "### Epoching and averaging"
@@ -7194,7 +7187,7 @@
   {
    "cell_type": "code",
    "execution_count": 6,
-   "id": "d3370af7",
+   "id": "07de4954",
    "metadata": {},
    "outputs": [
     {
@@ -49895,7 +49888,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "8d39123f",
+   "id": "29168299",
    "metadata": {},
    "source": [
     "### Grand average"
@@ -49904,7 +49897,7 @@
   {
    "cell_type": "code",
    "execution_count": 7,
-   "id": "ed7175e1",
+   "id": "3f458acb",
    "metadata": {},
    "outputs": [
     {
@@ -49935,7 +49928,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "b4fa7a02",
+   "id": "1bf6bec5",
    "metadata": {},
    "source": [
     "## Results\n",
@@ -49946,7 +49939,7 @@
   {
    "cell_type": "code",
    "execution_count": 8,
-   "id": "0d2f6e85",
+   "id": "6b6271ae",
    "metadata": {},
    "outputs": [
     {
@@ -49986,11 +49979,11 @@
   },
   {
    "cell_type": "markdown",
-   "id": "8f13b70a",
+   "id": "7bfc56c7",
    "metadata": {},
    "source": [
     "## Discussion and reflection\n",
-    "At CPz, unrelated target words elicited a more negative deflection than related targets, emerging at approximately 280 ms after target onset, and largest around 350 ms. The mean difference between conditions in the 300-500 ms window was approximately -7 μV (visually estimated from the graph), compared with -7.61 μV reported by @kappenman2021. This closely resembled the N400 effect reported by @kappenman2021, who found an onset of ~285 ms, a peak latency of ~370 ms, and mean amplitude of -7.61 μV. The N400 was therefore successfully replicated. \n",
+    "At CPz, unrelated target words elicited a more negative deflection than related targets, emerging at approximately 280 ms after target onset, and largest around 350 ms. This closely resembled the N400 effect reported by @kappenman2021, who found an onset of ~285 ms, a peak latency of ~370 ms. The mean difference between conditions in the 300-500 ms window was approximately -7 μV (visually estimated from the graph), compared with -7.61 μV reported by @kappenman2021. The N400 was therefore successfully replicated. \n",
     "\n",
     "The grand average waveforms appeared slightly noisier than those in @kappenman2021, who applied a 20 Hz low-pass filter before plotting, whereas this investigation utilised a 30 Hz low-pass filter. Furthermore, participant 030 was excluded because no unrelated-word trials remained after artifact rejection, leaving N = 38 compared with N = 39 originally. This also suggests that the fixed thresholds were perhaps more conservative than the original pipeline. \n",
     "\n",
