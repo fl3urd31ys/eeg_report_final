@@ -38,33 +38,36 @@ PROCESSED_PATH.mkdir(parents=True, exist_ok=True)
 
 ## Introduction
 
-Provide an introduction to the ERP component of your choice here. This should include a brief literature review -- see report instructions for details.
-Use appropriate subheadings as required: adapt the ones below, create new ones or delete as needed.
+### The N400 Component 
+Event-related potentials (ERPs) are small voltages generated in the brain in response to specific events or stimuli [@blackwood1990]. They are electroencephalography (EEG) changes time-locked to sensory, motor, or cognitive events and can be elicited by a wide variety of sensory, cognitive, or motor stimuli [@sur2009]. The N400 component is characterised by a negative-going deflection, emerges around 200 ms after stimulus onset, and peaks near 400 ms, lasting until 600 ms [@kutas2011]. The N400 component typically shows maximal amplitude over the centroparietal regions, primarily encompassing the Cz, CPz, Pz, C3, and C4 electrode sites, and for written words and sentences, it has a slight right-hemisphere bias [@kutas2011].
 
-### Intro subheading 1
+### Discovery and conditions of elicitation 
+Marta Kutas and Steven Hillyard first observed the N400 component in 1980 [@kutas1980]. In Kutas and Hillyard's experiment, participants silently read seven-word sentences presented one word at a time. The sentences either ended normally, for example, “I take my coffee with milk and sugar”, or were completed by unexpected words that were either semantically inappropriate, deviant, or both, for example, “I take my coffee with milk and dog” [@kutas1980]. Originally, it was expected that this experiment would elicit the already-known P3b ERP component rather than a new waveform [@kutas2011]. Following the semantically anomalous sentence-final words, N400 elicitation experiments extended to word-pair judgement tasks and priming [@holcomb1990]. These are the studies from which the ERP CORE task paradigm is adapted [@kappenman2021]. 
 
-### Intro subheading 2
+The N400 is not restricted to written text and can be elicited by a wide array of meaningful and potentially meaningful stimuli, including visual and auditory words (including acronyms), sign-language signs, pictures, environmental sounds, and gestures [@kutas2011]. It is larger in amplitude when a stimulus does not fit logically or semantically with the preceding context. It can be elicited by unexpected words even when they are grammatically and semantically plausible [@kutas2011]. In a word-pair judgement task, a target stimulus, for example “Doctor”, preceded by an unrelated prime, for example “socks”, elicits a larger N400 than a related prime word such as “Nurse” [@debruille1998]. Amplitude also varies with predictability: the negative deflection is typically present except for the most predictable words, and its size is inversely related to a word’s predictability [@lau2008].
+
+### Functional significance and controversies 
+The functional significance of the N400 has been interpreted in several ways, broadly split between lexical retrieval and semantic integration accounts. The retrieval account holds that the N400 reflects the ease of accessing a word’s meaning from long-term memory, which is facilitated when context has already partly activated meaning [@kutas2011]. In contrast, the integration account proposes that it reflects the post-lexical process of combining the incoming word’s meaning into a representation of the preceding context [@brown1993a]. Related work emphasises that context allows readers to predict upcoming words, with N400 amplitude smaller when a word matches the prediction [@vanpetten2012]. 
+
+A central debate concerns whether the N400 reflects retrieval or integration. Retrieval accounts argue that the N400 reflects access to stored meaning, which context makes easier, rather than the combination of meanings [@delogu2019]. Contrastingly, integration accounts argue that the N400 reflects how well the word combines with the preceding context. The retrieval-integration account [@aurnhammer2021] offers a different view, proposing that the N400 reflects word-meaning retrieval, with integration reflected in the P600. Whether prediction is necessary for the effect is also contested because the N400 could reflect pre-activation of expected words, or the ease of integrating whatever word arrives [@kutas2011]. 
+
 
 ## Methods
-The data were obtained from the ERP CORE resource (@kappenman2021), which is openly available under a Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) license. 
+The data was obtained from the ERP CORE resource [@kappenman2021], which is openly available under a Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) license. 
 
 ### Participants
-
-Provide information on the number of participants and their demographics (sex, age, handedness) as well as the inclusion criteria for the study.
+@kappenman2021 tested 40 neurotypical young adults (25 female, 15 male; M~age~ = 21.5, SD = 2.87, range = 18-30) from the University of California, Davis community. 38 participants were right-handed. Each participant had native English proficiency and normal colour perception, normal or corrected-to-normal vision, and no self-reported history of neurological injury or disease. Participants were excluded from a given task if artifacts were exhibited on more than 25% of trials, if their accuracy was below 75%, or if fewer than 50% of trials remained in any condition [@kappenman2021]. In the original study, 39 participants remained for the N400 analysis after exclusions [@kappenman2021]. In the present analysis, participant 040 was excluded because over 25% of their trials were rejected due to artifact, and less than 50% of related- and unrelated-word pair trials remained after artifact rejection. Additionally, participant 030 was excluded because no unrelated-word trials remained after the artifact rejection, leaving N = 38. 
 
 ### Procedure
-
-Describe the task that participants completed. This should be tailored to the task / component that you chose to analyse.
+The N400 was elicited using a word-pair judgement task adapted from Holcomb and Neville (1990) [@kappenman2021]. On each trial, a red prime word was presented for 200 ms, followed by an interval of 900-1100 ms, and then a green target word for 200 ms. The next trial began after 1400-1600 ms. Participants were instructed to indicate whether the target word was related or unrelated to the prime word. Each participant completed 60 trials per condition (120 trials total).  
 
 ### EEG recording
-Describe the EEG recording parameters: amplifier and type of cap used, electrode positions, CMS / DRL electrode positions, EOG electrode positions, and filter parameters.
+Continuous EEG was recorded using a Biosemi ActiveTwo recording system with active electrodes mounted in an elastic cap. Recordings were made from 30 scalp electrodes placed according to the International 10/20 System: FP1, F3, F7, FC3, C3, C5, P3, P7, P9, PO7, PO3, O1, Oz, Pz, CPz, FP2, Fz, F4, F8, FC4, FCz, Cz, C4, C6, P4, P8, P10, PO8, PO4, O2. The common mode sense (CMS) electrode was located at PO1, and the driven right leg (DRL) electrode at PO2. The horizontal electrooculogram (HEOG) was recorded from electrodes placed lateral to the external canthus of each eye, and the vertical electrooculogram (VEOG) from an electrode placed below the right eye. Signals were low-pass filtered using a fifth order sinc filter with a half-power cutoff at 204.8 Hz and digitised at 1024 Hz with 24-bit resolution. Signals were recorded in single-ended mode and referenced offline [@kappenman2021].  
 
 ### Analysis parameters
 
-Choose these parameters appropriate for the component that you are analysing. Use those recommended by @kappenman2021; see their Table 1. This holds for all parameters except for the filter parameters; for these, you can stick to the example parameters provided below.
-Describe the parameters in this section and also modify the code accordingly
-
 #### Preprocessing parameters
+The EEG was band-pass filtered between 0.1 Hz and 30.0 Hz, differing from the original pipeline which used a 0.1 Hz high-pass filter and a 20 Hz low-pass filter for plotting and peak measures [@kappenman2021]. The data were re-referenced offline to the average of P9 and P10, which are located adjacent to the mastoids [@kappenman2021]. 
 
 ```{python}
 
@@ -80,6 +83,8 @@ REFERENCE = ["P9","P10"]
 ```
 
 #### Epoching parameters
+Epochs were extracted from -200 ms to 800 ms relative to the onset of the target word, and baseline-corrected using the -200 ms to 0 ms interval. Epochs were created for related and unrelated conditions. Epochs exceeding 150 μV in the EEG channels or 250 μV in the EOG channels were rejected. The N400 was quantified at electrode CPz using a measurement window of 300 to 500 ms after target onset. Artifacts were rejected using fixed amplitude thresholds.
+
 
 ```{python}
 TMIN = -0.2 # epoch start relative to critical event
@@ -180,13 +185,9 @@ for cond in CONDITIONS:
 
 ### Grand average: expected effect
 
-Plot the electrode deemed most representative for the effect by @kappenman2021.
-Set the parameters for the specified analysis window, which will include dotted vertical lines marking the analysis window on the plot.
-Note: for some components, @kappenman2021 refer to two electrode sites. If this is the case for your chosen component, the analysis requires a consideration of lateralisation; please make an appointment to discuss the required analysis tweaks with Ina.
-
 ```{python}
 selected_electrode = "CPz"
-plot_title = "Grand average at CPz: unrelated vs. related target words"
+plot_title = "Figure 1: Grand average at CPz: unrelated vs. related target words"
 analysis_window_start = 0.3
 analysis_window_end = 0.5
 
@@ -196,11 +197,14 @@ plot_evokeds(grand_avs, picks = selected_electrode, invert_y = True, title = plo
 ```
 
 ## Discussion and reflection
+At CPz, unrelated target words elicited a more negative deflection than related targets, emerging at approximately 280 ms after target onset, and largest around 350 ms. The mean difference between conditions in the 300-500 ms window was approximately -7 μV (visually estimated from the graph), compared with -7.61 μV reported by @kappenman2021. This closely resembled the N400 effect reported by @kappenman2021, who found an onset of ~285 ms, a peak latency of ~370 ms, and mean amplitude of -7.61 μV. The N400 was therefore successfully replicated. 
 
-Provide a brief discussion of the effect that you observed. Were you able to replicate the ERP component as observed by @kappenman2021? If not, what was different in your grand average ERP? 
+The grand average waveforms appeared slightly noisier than those in @kappenman2021, who applied a 20 Hz low-pass filter before plotting, whereas this investigation utilised a 30 Hz low-pass filter. Furthermore, participant 030 was excluded because no unrelated-word trials remained after artifact rejection, leaving N = 38 compared with N = 39 originally. This also suggests that the fixed thresholds were perhaps more conservative than the original pipeline. 
 
-What did you learn by applying the analysis process to a new dataset?
+Working through the dataset showed me that the choice of time-locking event determines whether an effect appears at all. I had previously assumed that artifact rejection was a routine step, but the thresholds determined how many trials each participant kept and whether they stayed in the sample. I also learned that a replication does not require an identical pipeline, but it does require the same conditions, time-locking, and pattern of results. Next time I would check what each event label marks properly before choosing my conditions, because epoching the wrong condition would still produce a plot, but not the effect I was trying to replicate. Additionally, I would check how many trials each participant retains straight after epoching, because this would have shown me earlier that the fixed rejection thresholds were removing most of the data for some participants. 
+
+### AI Declaration: 
+I used Claude (Anthropic) to debug code and explain certain concepts. All text, writing, analysis and research are my own. 
 
 ## References
 
-*Note: this document is set up to automatically generate a reference list via a bib file. We will look at how to do this in the week 9 workshop.*
