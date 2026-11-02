@@ -2,7 +2,7 @@
  "cells": [
   {
    "cell_type": "markdown",
-   "id": "0722beab",
+   "id": "bcb6e9af",
    "metadata": {},
    "source": [
     "---\n",
@@ -28,7 +28,7 @@
   {
    "cell_type": "code",
    "execution_count": 1,
-   "id": "294c15de",
+   "id": "d7a2102f",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -44,7 +44,7 @@
   {
    "cell_type": "code",
    "execution_count": 2,
-   "id": "4cb8b502",
+   "id": "3970017b",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -57,7 +57,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "fc2cb244",
+   "id": "2ad5c6b5",
    "metadata": {},
    "source": [
     "## Introduction\n",
@@ -70,8 +70,7 @@
     "### Intro subheading 2\n",
     "\n",
     "## Methods\n",
-    "\n",
-    "Complete the following subsections using the information from @kappenman2021. Don't forget to mention that the data are from the ERP CORE resource under a Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0). \n",
+    "The data were obtained from the ERP CORE resource (@kappenman2021), which is openly available under a Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) license. \n",
     "\n",
     "### Participants\n",
     "\n",
@@ -82,7 +81,6 @@
     "Describe the task that participants completed. This should be tailored to the task / component that you chose to analyse.\n",
     "\n",
     "### EEG recording\n",
-    "\n",
     "Describe the EEG recording parameters: amplifier and type of cap used, electrode positions, CMS / DRL electrode positions, EOG electrode positions, and filter parameters.\n",
     "\n",
     "### Analysis parameters\n",
@@ -96,7 +94,7 @@
   {
    "cell_type": "code",
    "execution_count": 3,
-   "id": "61f7faf4",
+   "id": "fd13015b",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -112,7 +110,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "2f03c76d",
+   "id": "9482f85d",
    "metadata": {},
    "source": [
     "#### Epoching parameters"
@@ -121,7 +119,7 @@
   {
    "cell_type": "code",
    "execution_count": 4,
-   "id": "01f54760",
+   "id": "630c2a89",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -133,7 +131,7 @@
     "# critical conditions for averaging and epoching\n",
     "CONDITIONS = [\"stimulus/prime_word/related\", \"stimulus/prime_word/unrelated\"]\n",
     "\n",
-    "# participants exclided for the N400 (see methods)\n",
+    "# participants excluded for the N400 (see methods)\n",
     "EXCLUDE = [\"040\"]\n",
     "\n",
     "REJECT = {\n",
@@ -144,7 +142,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "971f85ab",
+   "id": "7f2d793a",
    "metadata": {},
    "source": [
     "## Data analysis\n",
@@ -155,7 +153,7 @@
   {
    "cell_type": "code",
    "execution_count": 5,
-   "id": "c0164afc",
+   "id": "08586cea",
    "metadata": {},
    "outputs": [
     {
@@ -7183,7 +7181,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "d7cf4327",
+   "id": "13cf8048",
    "metadata": {},
    "source": [
     "### Epoching and averaging"
@@ -7192,7 +7190,7 @@
   {
    "cell_type": "code",
    "execution_count": 6,
-   "id": "0c74513d",
+   "id": "870eb39b",
    "metadata": {},
    "outputs": [
     {
@@ -52168,7 +52166,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "ef3cee4e",
+   "id": "01ae50b5",
    "metadata": {},
    "source": [
     "### Grand average"
@@ -52177,7 +52175,7 @@
   {
    "cell_type": "code",
    "execution_count": 7,
-   "id": "70075775",
+   "id": "f30dbfc6",
    "metadata": {},
    "outputs": [
     {
@@ -52208,7 +52206,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "4d710b63",
+   "id": "6a1c8c67",
    "metadata": {},
    "source": [
     "## Results\n",
@@ -52223,7 +52221,7 @@
   {
    "cell_type": "code",
    "execution_count": 8,
-   "id": "504cd0db",
+   "id": "b617af23",
    "metadata": {},
    "outputs": [
     {
@@ -52247,7 +52245,7 @@
        "[<Figure size 768x576 with 2 Axes>]"
       ]
      },
-     "execution_count": 8,
+     "execution_count": 28,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -52263,7 +52261,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "45f1588d",
+   "id": "8dfdb19e",
    "metadata": {},
    "source": [
     "## Discussion and reflection\n",
@@ -52284,18 +52282,6 @@
    "language": "python",
    "name": "python3",
    "path": "/Users/ivanafelquer/Applications/MNE-Python/1.12.1_0/.mne-python/share/jupyter/kernels/python3"
-  },
-  "language_info": {
-   "codemirror_mode": {
-    "name": "ipython",
-    "version": 3
-   },
-   "file_extension": ".py",
-   "mimetype": "text/x-python",
-   "name": "python",
-   "nbconvert_exporter": "python",
-   "pygments_lexer": "ipython3",
-   "version": "3.13.9"
   }
  },
  "nbformat": 4,

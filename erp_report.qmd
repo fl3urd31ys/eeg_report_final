@@ -46,8 +46,7 @@ Use appropriate subheadings as required: adapt the ones below, create new ones o
 ### Intro subheading 2
 
 ## Methods
-
-Complete the following subsections using the information from @kappenman2021. Don't forget to mention that the data are from the ERP CORE resource under a Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0). 
+The data were obtained from the ERP CORE resource (@kappenman2021), which is openly available under a Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) license. 
 
 ### Participants
 
@@ -58,7 +57,6 @@ Provide information on the number of participants and their demographics (sex, a
 Describe the task that participants completed. This should be tailored to the task / component that you chose to analyse.
 
 ### EEG recording
-
 Describe the EEG recording parameters: amplifier and type of cap used, electrode positions, CMS / DRL electrode positions, EOG electrode positions, and filter parameters.
 
 ### Analysis parameters
@@ -90,10 +88,10 @@ TMAX = 0.8  # epoch end relative to critical event
 BASELINE = (-0.2,0) # baseline interval
 
 # critical conditions for averaging and epoching
-CONDITIONS = ["stimulus/prime_word/related", "stimulus/prime_word/unrelated"]
+CONDITIONS = ["stimulus/target_word/related", "stimulus/target_word/unrelated"]
 
-# participants exclided for the N400 (see methods)
-EXCLUDE = ["040"]
+# participants excluded for the N400 (see methods)
+EXCLUDE = ["040", "030"]
 
 REJECT = {
     "eeg": 150e-6,
@@ -188,9 +186,9 @@ Note: for some components, @kappenman2021 refer to two electrode sites. If this 
 
 ```{python}
 selected_electrode = "CPz"
-plot_title = "Grand average for N400: Incompatible versus compatible Flanker stimuli"
-analysis_window_start = 0.2
-analysis_window_end = 0.4
+plot_title = "Grand average at CPz: unrelated vs. related target words"
+analysis_window_start = 0.3
+analysis_window_end = 0.5
 
 plot_evokeds(grand_avs, picks = selected_electrode, invert_y = True, title = plot_title, vlines = [analysis_window_start, analysis_window_end])
 
@@ -206,4 +204,3 @@ What did you learn by applying the analysis process to a new dataset?
 ## References
 
 *Note: this document is set up to automatically generate a reference list via a bib file. We will look at how to do this in the week 9 workshop.*
-
